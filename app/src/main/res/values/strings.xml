@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">Your Week</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_task">No tasks for today</string>
+
+    <string name="openDrawer">Opening drawer</string>
+    <string name="closeDrawer">Closing drawer</string>
+
+    <!-- day strings -->
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+
+    <string-array name="day_array">
+        <item>@string/monday</item>
+        <item>@string/tuesday</item>
+        <item>@string/wednesday</item>
+        <item>@string/thursday</item>
+        <item>@string/friday</item>
+    </string-array>
+
+
+    <!-- Task messages -->
+    <string name="task_hint">What is your task?</string>
+    <string name="task_remembered">Task remembered!</string>
+    <string name="task_error">ERROR! Task could not be remembered!</string>
+    <string name="more_info_required">I need more info in order to create your task</string>
+
+
+    <!-- Time strings -->
+    <string name="no_start_time">No chosen start time</string>
+    <string name="no_end_time">No chosen end time</string>
+
+    <string name="low_limit">You have already reached Monday!</string>
+    <string name="high_limit">You have already reached the upper limit!</string>
+
+
+    <!-- Alarm messages -->
+    <string name="alarm_created">Alarm created!</string>
+    <string name="alarm_error_no_name">You need to provide an alarm name!</string>
+    <string name="alarm_hint">Name</string>
+    <string name="choose_date">Choose date</string>
+    <string name="choose_time">Choose time</string>
+
+
+    <!-- Button text -->
+    <string name="exit">Exit</string>
+    <string name="save">Save</string>
+    <string name="pre_day">-1 day</string>
+    <string name="next_day">+1 day</string>
+
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="setting_theme">Themes</string>
+    <string name="setting_format">Formats</string>
+    <string name="setting_backup">Backup</string>
+
+
+    <!-- Backup -->
+    <string name="backup_tasks">Backup all tasks</string>
+    <string name="backup_alarms">Backup all alarms</string>
+
+</resources>
