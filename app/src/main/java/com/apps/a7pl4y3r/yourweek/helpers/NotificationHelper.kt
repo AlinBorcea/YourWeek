@@ -18,6 +18,7 @@ class NotificationHelper(context: Context) : ContextWrapper(context) {
     val mManager: NotificationManager
 
 
+    // Initializes the notification manager and the notification channel if the build version is greater than android oreo
     init {
 
         mManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -28,7 +29,9 @@ class NotificationHelper(context: Context) : ContextWrapper(context) {
     }
 
 
-    fun getTestNotification(title: String, subtitle: String): NotificationCompat.Builder = NotificationCompat.Builder(applicationContext, channelId)
+    // Returns the notification layout
+    fun getTestNotification(title: String, subtitle: String): NotificationCompat.Builder = NotificationCompat
+        .Builder(applicationContext, channelId)
         .setSmallIcon(R.drawable.round_button_green)
         .setContentTitle(title)
         .setContentText(subtitle)

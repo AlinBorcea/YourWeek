@@ -5,9 +5,9 @@ import android.database.Cursor
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.apps.a7pl4y3r.yourweek.helpers.RecyclerViewAdapter
-import com.example.alin.yourweek.helpers.ItemOfRV
+import com.apps.a7pl4y3r.yourweek.helpers.ItemOfRV
 
-
+// Saves the data stored in res in an ArrayList and sets the RecyclerViewAdapter 
 fun setDayFragmentRecyclerView(recyclerView: RecyclerView, context: Context, res: Cursor) {
 
     val itemList = ArrayList<ItemOfRV>()

@@ -71,7 +71,7 @@ class Alarms : AppCompatActivity() {
 
     private fun setRecyclerView() {
 
-        val adapter = RvAlarms(this, itemList)
+        val adapter = RvAlarms(itemList)
 
         rvAlarms.setHasFixedSize(true)
         rvAlarms.layoutManager = LinearLayoutManager(this)

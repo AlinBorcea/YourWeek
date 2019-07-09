@@ -10,6 +10,7 @@ import java.util.*
 
 class TimePickerFragment: DialogFragment() {
 
+    // Creates the TimePickerDialog
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val c = Calendar.getInstance()

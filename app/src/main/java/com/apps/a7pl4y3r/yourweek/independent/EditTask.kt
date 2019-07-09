@@ -16,6 +16,12 @@ import kotlinx.android.synthetic.main.activity_add.*
 
 class EditTask : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
 
+    /*
+     * timePickerId changes when one of the timePickers is shown
+     * timePickerId = 1 -> timePicker one was created
+     * timePickerId = 2 -> timePicker two was created
+     */
+
     private var timePickerId = 0
     private var strStartHour: String? = null
     private var strStartMinute: String? = null
@@ -29,17 +35,14 @@ class EditTask : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
         setContentView(R.layout.activity_add)
         setData()
 
-
         tvChosenStartTime.setOnClickListener {
             timePickerId = 1
-            val timePicker = TimePickerFragment()
-            timePicker.show(supportFragmentManager, "time1")
+            TimePickerFragment().show(supportFragmentManager, "time1")
         }
 
         tvChosenEndTime.setOnClickListener {
             timePickerId = 2
-            val timePicker = TimePickerFragment()
-            timePicker.show(supportFragmentManager, "time2")
+            TimePickerFragment().show(supportFragmentManager, "time2")
         }
 
         btCreate.setOnClickListener {
@@ -47,36 +50,36 @@ class EditTask : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
             if (dataIsValid()) {
 
                 editTask()
-                val sharedPreferences = getSharedPreferences(settTaskWasAdded, Context.MODE_PRIVATE)
-                val editor = sharedPreferences.edit()
-                editor.putBoolean(valueSettTaskWasAdded, true)
-                editor.apply()
+                getSharedPreferences(settTaskWasAdded, Context.MODE_PRIVATE).edit().putBoolean(valueSettTaskWasAdded, true).apply()
                 finish()
 
-            } else toastMessage(this, "I need more info in order to create your task",false)
+            } else {
+                toastMessage(this, "I need more info in order to create your task",false)
+            }
         }
 
         btExitAdd.setOnClickListener {
-            finish()
             getSharedPreferences(settTaskWasAdded, Context.MODE_PRIVATE).edit().putBoolean(valueSettTaskWasAdded, true).apply()
+            finish()
         }
     }
 
+    // Updates the task
     private fun editTask() {
 
-        val db = Daydb(this, intent.getStringExtra("DAYID"))
-        val task = Task(strStartHour, strStartMinute, strEndHour, strEndMinute, etTask.text.toString())
+        Daydb(this, intent.getStringExtra("DAYID"))
+            .updateData(intent.getIntExtra("TASKID", 0).toString(),
+                Task(strStartHour, strStartMinute, strEndHour, strEndMinute, etTask.text.toString()))
 
-        if (db.updateData(intent.getIntExtra("TASKID", 0).toString(), task))
-            toastMessage(this, "Task edited!", false)
-        else
-            toastMessage(this, "Failed to edit task!", false)
     }
 
+    // Sets the initial data
+    // There will always be a task in the db with the intentExtra id
+    // The user will not be able to open this activity if the task does not exist
+    // This means there is no need for null checks
     private fun setData() {
 
-        val db = Daydb(this, intent.getStringExtra("DAYID"))
-        val res = db.getData()
+        val res = Daydb(this, intent.getStringExtra("DAYID")).getData()
 
         linearNavigation.removeView(btMin1Day)
         linearNavigation.removeView(btPlus1Day)
@@ -95,7 +98,6 @@ class EditTask : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
         strEndMinute = res.getString(4)
 
         res.close()
-        db.close()
     }
 
     private fun dataIsValid(): Boolean {
@@ -103,7 +105,7 @@ class EditTask : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
         val startTime = tvChosenStartTime.text.toString()
         val endTime = tvChosenEndTime.text.toString()
 
-        if(etTask.text.isEmpty() || startTime == "No chosen start time" || endTime == "No chosen end time")
+        if (etTask.text.isEmpty() || startTime == "No chosen start time" || endTime == "No chosen end time")
             return false
 
         return true
@@ -146,9 +148,10 @@ class EditTask : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
         return "$strHour:$strMinute"
     }
 
+    // timePickerId is used to set the time for the desired textView
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
 
-        when(timePickerId){
+        when (timePickerId){
             1 -> tvChosenStartTime.text = getTime(hourOfDay, minute, 1)
             2 -> tvChosenEndTime.text = getTime(hourOfDay,minute, 2)
         }

@@ -9,7 +9,6 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.apps.a7pl4y3r.yourweek.R
-import com.example.alin.yourweek.helpers.ItemOfRV
 
 
 class RecyclerViewAdapter(private val context: Context,
@@ -43,6 +42,7 @@ class RecyclerViewAdapter(private val context: Context,
         holder.card.setCardBackgroundColor(ContextCompat.getColor(context, R.color.greyText))
         holder.task.text = itemList[position].task
     }
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_task, parent, false), mListener)
+    override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder = ViewHolder(
+        LayoutInflater.from(parent.context).inflate(R.layout.card_task, parent, false), mListener)
     override fun getItemCount(): Int = itemList.size
 }

@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Daydb
 import com.apps.a7pl4y3r.yourweek.helpers.RecyclerViewAdapter
-import com.example.alin.yourweek.helpers.ItemOfRV
+import com.apps.a7pl4y3r.yourweek.helpers.ItemOfRV
 
 import kotlinx.android.synthetic.main.activity_update_task.*
 import java.util.Collections
@@ -125,7 +125,8 @@ class UpdateTask : AppCompatActivity() {
             val id = res.getInt(0)
             itemList.add(
                 ItemOfRV(
-                    "${res.getString(5)}\n${res.getString(1)}:${res.getString(2)} - ${res.getString(3)}:${res.getString(4)}", id))
+                    "${res.getString(5)}\n${res.getString(1)}:${res.getString(2)} - ${res.getString(3)}:${res.getString(4)}", id)
+            )
         } while (res.moveToNext())
 
             val mAdapter = RecyclerViewAdapter(this, itemList)

@@ -10,14 +10,12 @@ import java.util.ArrayList
 
 class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
-
     private val fragmentList = ArrayList<Fragment>()
-
 
     override fun getItem(position: Int): Fragment = fragmentList[position]
     override fun getCount(): Int = fragmentList.size
 
-
+    // Adds another day to the ViewPager object
     fun addFrag(fragment: Fragment) {
         fragmentList.add(fragment)
     }

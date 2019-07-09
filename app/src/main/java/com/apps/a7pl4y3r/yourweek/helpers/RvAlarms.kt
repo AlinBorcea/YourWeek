@@ -1,7 +1,6 @@
 package com.apps.a7pl4y3r.yourweek.helpers
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.apps.a7pl4y3r.yourweek.R
 import com.apps.a7pl4y3r.yourweek.databases.Alarm
 import com.apps.a7pl4y3r.yourweek.independent.getMonthNameById
-import kotlinx.android.synthetic.main.card_alarm.view.*
 
-class RvAlarms(context: Context, private val items: ArrayList<Alarm>) : RecyclerView.Adapter<RvAlarms.AlarmViewHolder>() {
+class RvAlarms(private val items: ArrayList<Alarm>) : RecyclerView.Adapter<RvAlarms.AlarmViewHolder>() {
 
 
     private var mListener: OnItemClickListener? = null

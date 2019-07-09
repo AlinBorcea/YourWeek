@@ -3,12 +3,18 @@ package com.apps.a7pl4y3r.yourweek.helpers
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.apps.a7pl4y3r.yourweek.independent.*
+import com.apps.a7pl4y3r.yourweek.independent.getCalendarDateString
+import com.apps.a7pl4y3r.yourweek.independent.monthExtra
+import com.apps.a7pl4y3r.yourweek.independent.nameExtra
+import com.apps.a7pl4y3r.yourweek.independent.yearExtra
+import com.apps.a7pl4y3r.yourweek.independent.dayExtra
+import com.apps.a7pl4y3r.yourweek.independent.hourExtra
+import com.apps.a7pl4y3r.yourweek.independent.minuteExtra
 
 
 class AlertReceiver : BroadcastReceiver() {
 
-
+    //Sends the notification and starts the alarm
     override fun onReceive(context: Context?, intent: Intent?) {
 
         val notificationHelper = NotificationHelper(context!!)
