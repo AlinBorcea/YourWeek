@@ -7,7 +7,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 import com.apps.a7pl4y3r.yourweek.R
-import com.google.firebase.FirebaseApp
 
 import kotlinx.android.synthetic.main.activity_settings.*
 
@@ -24,18 +23,12 @@ class Settings : AppCompatActivity() {
 
             val roundBackground = getButtonDrawable(this)
             btSettingsTheme.background = roundBackground
-            btSettingsFormats.background = roundBackground
             btSettingsBackup.background = roundBackground
 
         }
 
-
         btSettingsTheme.setOnClickListener {
             startActivity(Intent(this, SettingTheme::class.java))
-        }
-
-        btSettingsFormats.setOnClickListener {
-            startActivity(Intent(this, SettingsFormats::class.java))
         }
 
         btSettingsBackup.setOnClickListener {

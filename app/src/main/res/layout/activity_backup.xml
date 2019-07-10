@@ -15,8 +15,10 @@
             android:layout_gravity="center_horizontal"
             android:text="Export - get data on personal cloud"
             android:textSize="24sp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
             android:textColor="?attr/app_text"
-            android:layout_marginTop="64dp"/>
+            android:layout_marginTop="128dp"/>
 
     <Button
             android:id="@+id/btBackupTasks"
@@ -47,6 +49,8 @@
             android:text="Import - fetch data from the personal cloud"
             android:textColor="?attr/app_text"
             android:textSize="24sp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
             android:layout_marginTop="64dp"/>
 
     <Button

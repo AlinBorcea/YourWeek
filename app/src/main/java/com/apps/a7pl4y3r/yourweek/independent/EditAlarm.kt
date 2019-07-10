@@ -141,7 +141,7 @@ class EditAlarm : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimeP
 
         etAddAlarm.setText(intent.getStringExtra(nameExtra))
         tvDate.text = ("${calendar.get(Calendar.DAY_OF_MONTH)} ${getMonthNameById(calendar.get(Calendar.MONTH))} ${calendar.get(Calendar.YEAR)}")
-        tvTime.text = ("${calendar.get(Calendar.HOUR_OF_DAY)} ${calendar.get(Calendar.MINUTE)}")
+        tvTime.text = ("${calendar.get(Calendar.HOUR_OF_DAY)}:${calendar.get(Calendar.MINUTE)}")
 
     }
 

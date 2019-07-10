@@ -1,6 +1,7 @@
 package com.apps.a7pl4y3r.yourweek.independent
 
 
+import android.content.Context
 import android.database.Cursor
 import android.os.Build
 import android.os.Bundle
@@ -92,6 +93,7 @@ class Backup : AppCompatActivity() {
 
                     }
 
+                    getSharedPreferences(settTaskWasAdded, Context.MODE_PRIVATE).edit().putBoolean(valueSettTaskWasAdded, true).apply()
                     toastMessage(this, "Tasks downloaded!", false)
                 }
                 .addOnFailureListener {
@@ -111,6 +113,7 @@ class Backup : AppCompatActivity() {
                     for (query in it)
                         alarmDb.insertAlarm(query.toObject(Alarm::class.java))
 
+                    if (!it.isEmpty)
                     startAlarms(alarmDb.getAlarms())
 
                     alarmDb.close()

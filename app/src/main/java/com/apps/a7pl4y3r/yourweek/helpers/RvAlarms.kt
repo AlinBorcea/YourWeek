@@ -25,7 +25,7 @@ class RvAlarms(private val items: ArrayList<Alarm>) : RecyclerView.Adapter<RvAla
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(viewHolder: AlarmViewHolder, position: Int) {
         viewHolder.tvContent.text = "${items[position].name}\n\nDate: ${items[position].day} ${getMonthNameById(items[position].month.toInt())} ${items[position].year}\n" +
-                "Time: ${items[position].hour} ${items[position].minute}"
+                "Time: ${items[position].hour}:${items[position].minute}"
     }
 
 

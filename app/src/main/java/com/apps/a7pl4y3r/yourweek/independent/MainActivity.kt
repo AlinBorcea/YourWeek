@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onResume() {
+        super.onResume()
 
         var pref = getSharedPreferences(SettChangedTheme, Context.MODE_PRIVATE)
         if (pref.getBoolean(valueSettChangedTheme, false)) {
@@ -89,7 +90,6 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        super.onResume()
     }
 
 
